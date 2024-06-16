@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregunta Interactiva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://i.pinimg.com/236x/9e/6f/86/9e6f86a9b43a5ccad4c93629c4310ae3.jpg');
+            background-size: 1250px 800px;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            display: none;
+        }
+        .additionalButton {
+            display: none;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a la encuesta interactiva</h1>
+        <p>Antes de empezar, tienes que sabes que solo puedes pertenecer al equipo de MASTRUBOYS si cumples los siguientes requisitos.</p>
+        <br>
+        <li>ser hombre</li>
+        <strong><p>queremos solo hombres para seguir siendo virgos y no hablar con ninguna mujer el resto de nuestras divertidas vidas</p></strong> 
+        <button id="startButton">Empezar</button>
+    </div>
+
+    <div class="container" id="questionContainer" style="display: none;">
+        <h1>¿Te gusta la pija?</h1>
+        
+        <div class="buttons">
+            <button id="yesButton">SI</button>
+            <button id="noButton">NO</button>
+        </div>
+        <p id="yesMessage" class="message">¡Qué bien! Me alegra saber que puedes ser un candidato al equipo de MASTURBOY, ¡felicidades!</p>
+        <button id="additionalButton" class="additionalButton" onclick="window.location.href='inde.html'">Ver a tus compañeros</button>
+        <p id="noMessage" class="message">UUU... TREMENDO HOMOSEXUAL.... </p>
+    </div>
+
+    <script>
+        const startButton = document.getElementById('startButton');
+        const questionContainer = document.getElementById('questionContainer');
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const yesMessage = document.getElementById('yesMessage');
+        const noMessage = document.getElementById('noMessage');
+        const additionalButton = document.getElementById('additionalButton');
+
+        startButton.addEventListener('click', () => {
+            document.querySelector('.container').style.display = 'none';
+            questionContainer.style.display = 'block';
+        });
+
+        noButton.addEventListener('click', () => {
+            const container = document.querySelector('#questionContainer');
+            const containerRect = container.getBoundingClientRect();
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
+
+            const randomX = Math.random() * (containerRect.width - buttonWidth);
+            const randomY = Math.random() * (containerRect.height - buttonHeight);
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+
+            noMessage.style.display = 'block';
+            yesMessage.style.display = 'none';
+        });
+
+        yesButton.addEventListener('click', () => {
+            yesMessage.style.display = 'block';
+            noMessage.style.display = 'none';
+            additionalButton.style.display = 'inline-block';
+        });
+
+        additionalButton.addEventListener('click', () => {
+            // Puedes añadir aquí la redirección o cualquier otra acción adicional
+            alert('hey hey pequeña... solo pon aceptar...');
+        });
+    </script>
+</body>
+</html>
