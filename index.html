@@ -7,42 +7,68 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            height: 100vh;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             background: url('img2.jpeg') no-repeat center center fixed;
-            background-size: 1310px 700px;
+            background-size: cover; /* Ajusta la imagen de fondo para cubrir completamente el área */
+            height: 100vh;
         }
         .content {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-            
+            max-width: 800px;
+            width: 90%; /* Ajusta el ancho máximo del contenido */
+            margin: auto; /* Centra el contenido horizontalmente */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
         h1 {
-            font-size: 60px;
+            font-size: 4.5rem; /* Ajusta el tamaño del título */
             margin: 0;
         }
         p {
-            font-size: 20px;
+            font-size: 1.25rem; /* Ajusta el tamaño del texto */
             margin: 20px 0;
-            max-width: 800px;
+        }
+        h2 {
+            font-size: 2.5rem; /* Ajusta el tamaño de los subtítulos */
+            margin-top: 40px; /* Ajusta el margen superior */
         }
         button {
             padding: 10px 20px;
-            font-size: 18px;
+            font-size: 1.125rem; /* Ajusta el tamaño del botón */
             cursor: pointer;
             background-color: #007BFF;
-            color: rgb(0, 0, 0);
+            color: #fff; /* Cambia el color del texto a blanco */
             border: none;
             border-radius: 5px;
-            
+            margin-top: 20px;
         }
         button:hover {
             background-color: #0056b3;
+        }
+
+        /* Media Query para ajustes específicos en dispositivos móviles */
+        @media (max-width: 768px) {
+            .content {
+                padding: 10px; /* Reduce el padding en dispositivos móviles */
+            }
+            h1 {
+                font-size: 3rem; /* Reducir tamaño del título en dispositivos móviles */
+            }
+            p {
+                font-size: 1rem; /* Reducir tamaño del texto en dispositivos móviles */
+            }
+            h2 {
+                font-size: 2rem; /* Reducir tamaño de subtítulos en dispositivos móviles */
+                margin-top: 30px; /* Ajustar margen superior */
+            }
+            button {
+                font-size: 1rem; /* Reducir tamaño del botón en dispositivos móviles */
+            }
         }
     </style>
 </head>
